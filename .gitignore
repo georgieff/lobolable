@@ -1,0 +1,16 @@
+src/*
+.*.swp
+*~
+*.py[co]
+.coverage
+*.egg-info
+dist
+*.egg
+db.sqlite3
+data/*
+.DS_Store
+.idea
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
