@@ -775,10 +775,6 @@ fieldset[disabled] .btn-theme {
     padding-left: 0;
     padding-right: 0;
   }
-  .header .navbar-nav {
-    margin: 0;
-    float: none;
-  }
   .header .navbar-nav .nav-item {
     float: none;
   }
@@ -1564,4 +1560,15 @@ fieldset[disabled] .btn-theme {
 
 .height-300 {
   height: 300px !important;
+}
+@media (min-width:768px) {
+    .-pizza h4 {
+        min-height: 60px;
+    }
+    .-pizza p {
+        min-height: 105px;
+    }
+    .-pizza {
+       min-height: 490px;
+    }
 }

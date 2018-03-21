@@ -8,7 +8,7 @@ def home(request):
 
     return render(request, "pizza/index.html",
                   {
-                      'pizzas': Pizza.objects.all()
+                      'pizzas': Pizza.objects.order_by('-date_added')
                   })
 
 

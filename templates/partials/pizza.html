@@ -1,0 +1,13 @@
+
+<div class="col-sm-4 sm-margin-b-50 -pizza">
+    <div class="margin-b-20">
+        {% if pizza.image %}
+            <a href="{% url 'pizza_item' pizza_url=pizza.url_name %}">
+                <img class="img-responsive" src="{{ pizza.image.url }}" alt="{{ pizza.name }}">
+            </a>
+        {% endif %}
+    </div>
+    <h4><a href="{% url 'pizza_item' pizza_url=pizza.url_name %}">{{ pizza.name }}</a></h4>
+    <p>{{ pizza.description }}</p>
+    <a class="link" href="{% url 'pizza_item' pizza_url=pizza.url_name %}">Read More</a>
+</div>

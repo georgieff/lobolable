@@ -11,12 +11,16 @@ class Pizza(models.Model):
         on_delete=models.PROTECT
     )
     image = models.ImageField(upload_to='pizzas', blank=True)
+    description = models.TextField(max_length=300, blank=True)
     ingredients = models.TextField(max_length=3000, blank=True)
     preparation = models.TextField(max_length=3000, blank=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     def save(self):
-        self.url_name = self.name.replace(' ', '-')
+        self.url_name = self.name\
+            .replace(' ', '-')\
+            .replace('\'', '') \
+            .lower()
         super(Pizza, self).save()
 
     def __str__(self):

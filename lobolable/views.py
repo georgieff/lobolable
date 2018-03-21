@@ -1,8 +1,11 @@
 from django.shortcuts import render
 
+from pizza.models import Pizza
+
 
 def home(request):
-    return render(request, 'app/index.html')
+    pizzas = Pizza.objects.order_by('-date_added')[:3]
+    return render(request, 'app/index.html', {'pizzas': pizzas})
 
 
 def contact(request):

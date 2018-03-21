@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
-{% load static %}
 
 
 {% block content %}
     {% include 'partials/sec-header.html' %}
-    <div class="section-seperator">
+
+    <div id="products" class="section-seperator">
         <div class="content-lg container">
+            <div class="row margin-b-40">
+                <div class="col-sm-6">
+                    <h2>All Pizzas</h2>
+                    <p>See all pizza recipes.</p>
+                </div>
+            </div>
 
-            {% for pizza in pizzas %}
-                <a href="{% url 'pizza_item' pizza_url=pizza.url_name %}">{{ pizza.name }}</a>
-            {% endfor %}
-
+            <div class="row">
+                {% for pizza in pizzas %}
+                    {% include 'partials/pizza.html' %}
+                {% endfor %}
+            </div>
         </div>
     </div>
+
 {% endblock %}
