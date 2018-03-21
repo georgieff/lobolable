@@ -5,6 +5,7 @@ from .models import Pizza, PizzaComment
 @admin.register(Pizza)
 class PizzaAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'url_name', 'date_added')
+    exclude = ['url_name']
 
 
 admin.site.register(PizzaComment)

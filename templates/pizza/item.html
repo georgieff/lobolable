@@ -9,7 +9,11 @@
         <div class="content-lg container">
 
             {{ pizza.name }}<br>
-            {{ pizza.user }}
+            {{ pizza.user }}<br>
+
+            {% if pizza.image %}
+                <img src="{{ pizza.image.url }}" style="max-width: 400px;" alt="">
+            {% endif %}
 
             <h4>Comments:</h4>
             {% for comment in comments %}

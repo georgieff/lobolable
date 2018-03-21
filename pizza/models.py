@@ -4,11 +4,20 @@ from django.contrib.auth.models import User
 
 class Pizza(models.Model):
     name = models.CharField(max_length=300)
+    url_name = models.CharField(max_length=300, unique=True, blank=True)
+    user = models.ForeignKey(
+        User,
+        related_name='user_pizza',
+        on_delete=models.PROTECT
+    )
     image = models.ImageField(upload_to='pizzas', blank=True)
     ingredients = models.TextField(max_length=3000, blank=True)
     preparation = models.TextField(max_length=3000, blank=True)
-    url_name = models.CharField(max_length=300, unique=True)
     date_added = models.DateTimeField(auto_now_add=True)
+
+    def save(self):
+        self.url_name = self.name.replace(' ', '-')
+        super(Pizza, self).save()
 
     def __str__(self):
         return self.name
