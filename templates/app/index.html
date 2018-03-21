@@ -2,17 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <div id="carousel-example-generic" class="carousel slide">
-        <div class="item active">
-            <img class="img-responsive" src="{% static 'img/main.jpeg' %}" alt="Slider Image">
-            <div class="container">
-                <div class="carousel-centered">
-                    <div class="margin-b-40">
-                        <h1 class="carousel-title">Pizza!</h1>
-                        <p class="color-white">Classic pizza recipe, including pizza dough and toppings, <br>step-by-step instructions with photos. <br>Make perfect pizza at home!</p>
-                    </div>
-                    <a href="{% url 'pizza_all' %}" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">All pizzas</a>
+    <div class="carousel slide">
+        <div class="container">
+            <div class="carousel-centered">
+                <div class="margin-b-40">
+                    <h1 class="carousel-title">Pizza!</h1>
+                    <p class="color-white">Classic pizza recipe, including pizza dough and toppings, <br>step-by-step instructions with photos. <br>Make perfect pizza at home!</p>
                 </div>
+                <a href="{% url 'pizza_all' %}" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">All pizzas</a>
             </div>
         </div>
     </div>

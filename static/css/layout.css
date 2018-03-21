@@ -1035,14 +1035,28 @@ fieldset[disabled] .btn-theme {
 
 .carousel {
     overflow: hidden;
-    max-height: 100vh;
+    position: relative;
+    min-height: 400px;
+    background: url('/static/img/main.jpeg');
+    background-size: cover;
+    background-position: center center;
+}
+@media (min-width:768px) {
+    .carousel {
+        height: 100vh;
+    }
 }
 
 .carousel.-small {
     height: 250px;
     background: url('/static/img/sec.jpeg');
-    background-size: cover;
-    background-position: center center;
+}
+.carousel img {
+    min-height: 400px;
+    width: auto;
+}
+.carousel h1 {
+    padding-top: 60px;
 }
 
 /*------------------------------------------------------------------
