@@ -6,3 +6,7 @@ simple python/django playground
 -*Django 2.0.3*
 
 -*django-crispy-forms 1.7.2*
+
+-*Pillow 5.0.0*
+
+

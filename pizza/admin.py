@@ -8,3 +8,7 @@ class PizzaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(PizzaComment)
+
+# @admin.register(PizzaComment)
+# class PizzaCommentAdmin(admin.ModelAdmin):
+#     list_display = ('id', 'user', 'pizza.name', 'date_added')
