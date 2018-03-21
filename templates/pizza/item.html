@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'partials/sec-header.html' %}
+    <div class="section-seperator">
+        <div class="content-lg container">
+
+            {{ pizza.name }}<br>
+            {{ pizza.user }}
+
+            <h4>Comments:</h4>
+            {% for comment in comments %}
+                <div>{{ comment.comment }}</div>
+                <div>{{ comment.date_added }} - {{ comment.user }}</div>
+            <br>
+            {% endfor %}
+
+
+            {% if user.is_authenticated %}
+                <form action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
+                    method="post">
+
+                    {% csrf_token %}
+
+                    {{ form }}
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

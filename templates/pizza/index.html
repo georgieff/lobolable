@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'partials/sec-header.html' %}
+    <div class="section-seperator">
+        <div class="content-lg container">
+
+            {% for pizza in pizzas %}
+                <a href="{% url 'pizza_item' pizza_url=pizza.url_name %}">{{ pizza.name }}</a>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

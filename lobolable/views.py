@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
-def welcome(request):
-    return HttpResponse("hey heyy")
+def home(request):
+    return render(request, 'app/index.html')
+
+
+def contact(request):
+    return render(request, 'app/contact.html')

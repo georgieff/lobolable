@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'partials/sec-header.html' %}
+    <div class="section-seperator">
+        <div class="content-lg container">
+
+            <form   role="form"
+                    action="{% url 'lobolable_login' %}"
+                    method="post">
+
+                {% csrf_token %}
+
+                <p>Please login.</p>
+
+                {{ form }}
+
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
