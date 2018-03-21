@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pizza',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ LOGIN_REDIRECT_URL = 'lobolable_homepage'
 LOGOUT_REDIRECT_URL = 'lobolable_homepage'
 
 LOGIN_URL = 'lobolable_login'
+
+CRISPY_TEMPLATE_PACK='bootstrap3'
