@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<style>
+    h1 {
+        font-size: 32px;
+        margin: 0;
+        color: #444;
+    }
+    h4 {
+        font-size: 22px;
+        margin: 0;
+        color: #444;
+    }
+    p {
+        font-size: 15px;
+        margin: 0;
+        margin-bottom: 10px;
+        color: #666;
+    }
+    .margin-b-20 {
+        margin-bottom: 20px;
+        color: #666;
+        font-size: 12px;
+        color: #666;
+    }
+    .text-right {
+        display: block;
+        text-align: right;
+    }
+</style>
+<div class="section-seperator pizza-page">
+    <div class="content-lg container">
+
+        <h1>{{ pizza.name }}</h1>
+        <div class="service bg-color-base margin-b-20">
+            <span class="color-white">{{ pizza.description }}</span>
+        </div>
+        {% if pizza.image %}
+            <img src="{{ pizza.image.url }}" class="margin-b-40" alt="">
+        {% endif %}
+        <div class="margin-b-40">
+            <h4>Ingredients</h4>
+            <div class="info ingredients">{{ pizza.ingredients | linebreaks }}</div>
+        </div>
+        <div class="margin-b-40">
+            <h4>Preparation</h4>
+            <div class="info">{{ pizza.preparation | linebreaks }}</div>
+        </div>
+        <span class="text-right">by {{ pizza.user }}</span>
+
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

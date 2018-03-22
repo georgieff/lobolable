@@ -9,4 +9,4 @@ simple python/django playground
 
 -*Pillow 5.0.0*
 
-
+-*reportlab 3.4.0*
