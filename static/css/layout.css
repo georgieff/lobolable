@@ -563,6 +563,7 @@ fieldset[disabled] .btn-theme {
   z-index: 100;
   background: rgba(0,0,0,.4);
   border: none;
+  border-radius: 0;
 }
 
 .header {
@@ -756,7 +757,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /* Media Queries below 991px */
-@media (max-width: 991px) {
+@media (max-width: 479px) {
   /* Bootstrap collapse of navigation with a maximum width: 991px
     (Change it to any breakpoint you want to be collapsed) */
   .header {
@@ -806,7 +807,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /* Media Queries below 767px */
-@media (max-width: 767px) {
+@media (max-width: 479px) {
   /* Menu Container */
   .header .menu-container {
     padding-left: 15px;
@@ -830,7 +831,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /* Media Queries above 992px */
-@media (min-width: 992px) {
+@media (min-width: 480px) {
   /* Navbar */
   .header .navbar-nav-right {
     float: right;
@@ -838,7 +839,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /* Page On Scroll */
-@media (min-width: 992px) {
+@media (min-width: 480px) {
   .page-on-scroll .header .navbar {
     background: #fff;
     border-bottom-color: #f0f0f0;

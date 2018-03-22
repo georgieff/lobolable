@@ -1,4 +1,6 @@
 {% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,24 +17,18 @@
     </head>
     <body id="body">
 
-        <!--========== HEADER ==========-->
         <header class="header">
-            <!-- Navbar -->
             <nav class="navbar" role="navigation">
                 <div class="container">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="menu-container js_nav-item">
 
-                        <!-- Logo -->
+                    <div class="menu-container js_nav-item">
                         <div class="logo">
                             <a class="logo-wrap" href="/">
                                lobolable<span>pizza</span>
                             </a>
                         </div>
-                        <!-- End Logo -->
                     </div>
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse nav-collapse">
                         <div class="menu-container">
                             <ul class="nav navbar-nav navbar-nav-right">
@@ -50,10 +46,8 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End Navbar Collapse -->
                 </div>
             </nav>
-            <!-- Navbar -->
         </header>
 
         {% block content %}
@@ -61,59 +55,15 @@
 
         <footer class="footer">
 
-            <!--<div class="section-seperator">-->
-                <!--<div class="content-md container">-->
-                    <!--<div class="row">-->
-                        <!--<div class="col-sm-2 sm-margin-b-30">-->
-
-                            <!--<ul class="list-unstyled footer-list">-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Home</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">About</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Work</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Contact</a></li>-->
-                            <!--</ul>-->
-
-                        <!--</div>-->
-                        <!--<div class="col-sm-2 sm-margin-b-30">-->
-
-                            <!--<ul class="list-unstyled footer-list">-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Twitter</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Facebook</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Instagram</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">YouTube</a></li>-->
-                            <!--</ul>-->
-
-                        <!--</div>-->
-                        <!--<div class="col-sm-3">-->
-
-                            <!--<ul class="list-unstyled footer-list">-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Subscribe to Our Newsletter</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Privacy Policy</a></li>-->
-                                <!--<li class="footer-list-item"><a href="http://keenthemes.com/">Terms &amp; Conditions</a></li>-->
-                            <!--</ul>-->
-
-                        <!--</div>-->
-                    <!--</div>-->
-
-                <!--</div>-->
-            <!--</div>-->
-
-
-            <!-- Copyright -->
             <div class="content container">
                 <div class="row">
                     <div class="col-xs-6">
                         logolable<span>pizza</span>
                     </div>
-                    <div class="col-xs-6 text-right">
-                    </div>
                 </div>
-                <!--// end row -->
             </div>
-            <!-- End Copyright -->
+
         </footer>
-
-
+        <script src="{% static 'js/main.js' %}"></script>
     </body>
-    <!-- END BODY -->
 </html>

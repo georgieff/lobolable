@@ -33,31 +33,30 @@
                     {% if user.is_authenticated %}
                         <div class="margin-b-40 collapsed panel-title-child">
                             <h5>Your comment:</h5>
-                            <form action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
-                                method="post">
+                            <form id="comment-form"
+                                  action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
+                                  method="post">
 
                                 {% csrf_token %}
 
                                 {{ form | crispy }}
 
-                                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase full-width">Submit</button>
+                                <button type="submit"
+                                        class="btn-theme btn-theme-sm btn-white-bg text-uppercase full-width"
+                                        id="submit-comment">Submit</button>
                             </form>
                         </div>
                     {% endif %}
 
                     <h4>Comments:</h4>
-                    {% for comment in comments %}
 
-                        <div class="comment">
-                            <p>{{ comment.comment | linebreaks }}</p>
-                            <div>{{ comment.date_added }} - by <span>{{ comment.user }}</span></div>
-                        </div>
+                    <div id="comments-container">
+                        {% include 'partials/comments.html' %}
 
-                    {% endfor %}
-
-                    {% if not comments %}
-                        <h6 class="btn-theme btn-theme-sm btn-default-bg text-uppercase">no comments yet : (</h6>
-                    {% endif %}
+                        {% if not comments %}
+                            <h6 class="btn-theme btn-theme-sm btn-default-bg text-uppercase">no comments yet : (</h6>
+                        {% endif %}
+                    </div>
 
                     {% if not user.is_authenticated %}
                         <div class="margin-t-20">

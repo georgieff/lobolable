@@ -1,0 +1,8 @@
+{% for comment in comments %}
+
+    <div class="comment">
+        <p>{{ comment.comment | linebreaks }}</p>
+        <div>{{ comment.date_added }} - by <span>{{ comment.user }}</span></div>
+    </div>
+
+{% endfor %}
