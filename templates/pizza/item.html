@@ -7,6 +7,7 @@
     {% include 'partials/sec-header.html' %}
     <div class="section-seperator pizza-page">
         <div class="content-lg container">
+            
             <h1>{{ pizza.name }}</h1>
             <span class="text-right">by {{ pizza.user }}</span>
 
@@ -67,10 +68,10 @@
                 </div>
             </div>
 
-
-
-
-
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}
