@@ -33,7 +33,7 @@ urlpatterns = [
          signup,
          name='lobolable_signup'),
     path('login/',
-         LoginView.as_view(template_name='app/login.html'),
+         LoginView.as_view(template_name='app/login.html', redirect_authenticated_user=True),
          name='lobolable_login'),
     path('logout/',
          LogoutView.as_view(),
