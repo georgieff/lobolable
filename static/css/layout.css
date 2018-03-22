@@ -1591,18 +1591,53 @@ fieldset[disabled] .btn-theme {
 .pizza-page img {
     max-width: 100%;
 }
+.pizza-page textarea {
+    height: 80px;
+}
 
-pre {
-    background-color: transparent;
+.pizza-content .info {
     border: none;
     border-left: 1px solid #ccc;
     border-radius: 0;
     font-family: Hind, sans-serif;
     font-size: 16px;
+    padding: 10px 20px;
 }
+.pizza-content .info p {
+    color: #444;
+    font-size: 16px;
+}
+
+.pizza-content .ingredients p {
+    line-height: 1.6em;
+}
+
 .comment.btn-default-bg,
 .comment.btn-default-bg:hover,
 h6.btn-default-bg:hover {
     background: #f3f4f5;
     color: #515769;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.comment {
+    padding: 10px 15px;
+    background: #f9f9f9;
+}
+.comment span {
+    color: inherit;
+    font-weight: 600;
+}
+.comment p {
+    font-size: 16px;
+}
+.comment:nth-child(even)  {
+    background: #17bed2;
+    color: #fff;
+}
+.comment:nth-child(even) p  {
+    color: #fff;
 }

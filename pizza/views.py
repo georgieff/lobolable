@@ -27,6 +27,6 @@ def item(request, pizza_url):
     return render(request, "pizza/item.html",
                   {
                       'pizza': pizza,
-                      'comments': PizzaComment.objects.filter(pizza=pizza),
+                      'comments': PizzaComment.objects.order_by('-date_added').filter(pizza=pizza),
                       'form': form
                   })

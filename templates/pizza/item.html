@@ -11,43 +11,48 @@
             <span class="text-right">by {{ pizza.user }}</span>
 
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8 pizza-content">
                     {% if pizza.image %}
                         <img src="{{ pizza.image.url }}" class="margin-b-40" alt="">
                     {% endif %}
                     <div class="margin-b-40">
                         <h4>Ingredients</h4>
-                        <pre>{{ pizza.ingredients }}</pre>
+                        <div class="info ingredients">{{ pizza.ingredients | linebreaks }}</div>
                     </div>
                     <div class="margin-b-40">
                         <h4>Preparation</h4>
-                        <pre>{{ pizza.preparation }}</pre>
+                        <div class="info">{{ pizza.preparation | linebreaks }}</div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 ">
+
                     <div class="service bg-color-base margin-b-40">
                         <span class="color-white">{{ pizza.description }}</span>
                     </div>
 
                     {% if user.is_authenticated %}
-                        <h5>Your comment:</h5>
-                        <form action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
-                            method="post">
+                        <div class="margin-b-40 collapsed panel-title-child">
+                            <h5>Your comment:</h5>
+                            <form action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
+                                method="post">
 
-                            {% csrf_token %}
+                                {% csrf_token %}
 
-                            {{ form | crispy }}
+                                {{ form | crispy }}
 
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </form>
+                                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Submit</button>
+                            </form>
+                        </div>
                     {% endif %}
 
                     <h4>Comments:</h4>
                     {% for comment in comments %}
-                        <div>{{ comment.comment }}</div>
-                        <div>{{ comment.date_added }} - {{ comment.user }}</div>
-                        <hr>
-                        <br>
+
+                        <div class="comment">
+                            <p>{{ comment.comment | linebreaks }}</p>
+                            <div>{{ comment.date_added }} - by <span>{{ comment.user }}</span></div>
+                        </div>
+
                     {% endfor %}
 
                     {% if not comments %}
@@ -56,10 +61,9 @@
 
                     {% if not user.is_authenticated %}
                         <div>
-                            <a href="{% url 'lobolable_login' %}">Login</a> or <a href="">Register</a> to add a comment.
+                            <a href="{% url 'lobolable_login' %}">Login</a> or <a href="{% url 'lobolable_signup' %}">Register</a> to add a comment.
                         </div>
                     {% endif %}
-
 
                 </div>
             </div>

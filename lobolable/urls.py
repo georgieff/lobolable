@@ -18,13 +18,20 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.conf.urls import url, include
 from django.urls import path
 
-from .views import home, contact
+from .views import home, contact, signup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pizza/', include('pizza.urls')),
-    path('', home, name='lobolable_homepage'),
-    path('contact/', contact, name='lobolable_contact'),
+    path('',
+         home,
+         name='lobolable_homepage'),
+    path('contact/',
+         contact,
+         name='lobolable_contact'),
+    path('signup/',
+         signup,
+         name='lobolable_signup'),
     path('login/',
          LoginView.as_view(template_name='app/login.html'),
          name='lobolable_login'),

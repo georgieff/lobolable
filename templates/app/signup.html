@@ -7,18 +7,12 @@
     <div class="section-seperator">
         <div class="content-lg container">
 
-            <form   role="form"
-                    action="{% url 'lobolable_login' %}"
-                    method="post">
-
+              <h1>Sign up</h1>
+              <form method="post">
                 {% csrf_token %}
-
-                <p>Please login.</p>
-
                 {{ form | crispy }}
-
-                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Sign in</button>
-            </form>
+                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Sign up</button>
+              </form>
         </div>
     </div>
 
