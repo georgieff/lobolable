@@ -39,10 +39,10 @@
 
                     {% if user.is_authenticated %}
                         <div class="margin-b-40 collapsed panel-title-child">
-                            <h5>Your comment:</h5>
                             <form id="comment-form"
                                   action="{% url 'pizza_item' pizza_url=pizza.url_name  %}"
-                                  method="post">
+                                  method="post"
+                                  class="comment-form">
 
                                 {% csrf_token %}
 
