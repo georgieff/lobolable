@@ -8,7 +8,7 @@
         <div class="content-lg container">
 
               <h1>Sign up</h1>
-              <form method="post">
+              <form action="{% url 'lobolable_signup' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}" method="post">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Sign up</button>

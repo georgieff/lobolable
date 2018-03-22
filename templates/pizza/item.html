@@ -40,7 +40,7 @@
 
                                 {{ form | crispy }}
 
-                                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Submit</button>
+                                <button type="submit" class="btn-theme btn-theme-sm btn-white-bg text-uppercase full-width">Submit</button>
                             </form>
                         </div>
                     {% endif %}
@@ -60,8 +60,8 @@
                     {% endif %}
 
                     {% if not user.is_authenticated %}
-                        <div>
-                            <a href="{% url 'lobolable_login' %}">Login</a> or <a href="{% url 'lobolable_signup' %}">Register</a> to add a comment.
+                        <div class="margin-t-20">
+                            <a href="{% url 'lobolable_login' %}?next={{request.path | urlencode}}">Login</a> or <a href="{% url 'lobolable_signup' %}?next={{request.path | urlencode}}">Register</a> to add a comment.
                         </div>
                     {% endif %}
 

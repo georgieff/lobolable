@@ -23,7 +23,8 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('lobolable_homepage')
+            next = request.GET.get('next', '/')
+            return redirect(next)
     else:
         form = UserCreationForm()
     return render(request, 'app/signup.html', {'form': form})

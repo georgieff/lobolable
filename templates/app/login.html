@@ -8,7 +8,7 @@
         <div class="content-lg container">
 
             <form   role="form"
-                    action="{% url 'lobolable_login' %}"
+                    action="{% url 'lobolable_login' %}?next={{ request.GET.next }}"
                     method="post">
 
                 {% csrf_token %}

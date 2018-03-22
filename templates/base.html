@@ -41,9 +41,9 @@
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="{% url 'lobolable_contact' %}">Contact</a></li>
                                 <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover"
                                     {% if user.is_authenticated %}
-                                        href="{% url 'lobolable_logout' %}">{{ user }}, Logout</a>
+                                        href="{% url 'lobolable_logout' %}?next={{request.path}}">{{ user | urlencode }}, Logout</a>
                                     {% else %}
-                                        href="{% url 'lobolable_login' %}">Login</a>
+                                        href="{% url 'lobolable_login' %}?next={{request.path | urlencode}}">Login</a>
                                     {% endif %}
                                     </a></li>
 
