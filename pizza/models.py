@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Pizza(models.Model):
@@ -25,6 +26,9 @@ class Pizza(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('pizza_item', args=[self.url_name])
 
 
 class PizzaComment(models.Model):

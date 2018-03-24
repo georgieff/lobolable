@@ -55,7 +55,7 @@ def _add_comment(request, pizza):
             })
             return JsonResponse({'comments': rendered_comments})
         else:
-            return redirect('pizza_item', pizza_url=pizza.url_name)
+            return redirect(pizza)
 
 
 def _render_to_pdf(template_src, context_dict):
