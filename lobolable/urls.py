@@ -15,22 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
-from django.conf.urls import url, include
+from django.conf.urls import url, include, handler404, handler500
 from django.urls import path
 
-from .views import home, contact, signup
+from .views import HomeView, SignUpView, ContactView, NotFoundView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pizza/', include('pizza.urls')),
     path('',
-         home,
+         HomeView.as_view(),
          name='lobolable_homepage'),
     path('contact/',
-         contact,
+         ContactView.as_view(),
          name='lobolable_contact'),
     path('signup/',
-         signup,
+         SignUpView.as_view(),
          name='lobolable_signup'),
     path('login/',
          LoginView.as_view(template_name='app/login.html', redirect_authenticated_user=True),
@@ -39,3 +39,5 @@ urlpatterns = [
          LogoutView.as_view(),
          name='lobolable_logout')
 ]
+
+handler404 = NotFoundView.as_view()
