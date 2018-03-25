@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.template.loader import render_to_string
-from django.http import HttpResponse
+from django.views.generic import TemplateView, ListView, View, DetailView
 
 from io import BytesIO
 from django.template.loader import get_template
@@ -11,12 +11,10 @@ from .forms import PizzaCommentForm
 from pizza.models import Pizza, PizzaComment
 
 
-def home(request):
-
-    return render(request, 'pizza/index.html',
-                  {
-                      'pizzas': Pizza.objects.order_by('-date_added')
-                  })
+class HomeView(ListView):
+    model = Pizza
+    template_name = "pizza/index.html"
+    context_object_name = 'pizzas'
 
 
 def item(request, pizza_url):

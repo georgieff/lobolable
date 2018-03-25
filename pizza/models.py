@@ -27,8 +27,8 @@ class Pizza(models.Model):
     def __str__(self):
         return self.name
 
-    # class Meta:
-    #     ordering = ["-date_added"]
+    class Meta:
+        ordering = ["-date_added"]
 
     def get_absolute_url(self):
         return reverse('pizza_item', args=[self.url_name])
