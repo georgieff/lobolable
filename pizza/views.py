@@ -17,22 +17,6 @@ class HomeView(ListView):
     context_object_name = 'pizzas'
 
 
-# def item(request, pizza_url):
-#     pizza = get_object_or_404(Pizza, url_name=pizza_url)
-#
-#     if request.method == "POST":
-#         return _add_comment(request, pizza)
-#     else:
-#         form = PizzaCommentForm()
-#
-#     return render(request, 'pizza/item.html',
-#                   {
-#                       'pizza': pizza,
-#                       'comments': PizzaComment.objects.order_by('-date_added').filter(pizza=pizza),
-#                       'form': form
-#                   })
-
-
 class ItemView(View):
     template_name = "pizza/item.html"
     initial = {}
@@ -62,18 +46,20 @@ class ItemView(View):
                 return redirect(pizza)
 
 
-def pdf(request, pizza_url):
-    pizza = get_object_or_404(Pizza, url_name=pizza_url)
-    pdf_doc = _render_to_pdf('pizza/pdf.html', {'pizza': pizza})
+class PdfView(View):
+    template_name = "pizza/pdf.html"
 
-    return HttpResponse(pdf_doc, content_type='application/pdf')
+    def get(self, request, *args, **kwargs):
+        pizza = get_object_or_404(Pizza, url_name=self.kwargs['pizza_url']);
+        pdf_doc = self._render_to_pdf({'pizza': pizza})
+        return HttpResponse(pdf_doc, content_type='application/pdf')
 
+    def _render_to_pdf(self, context_dict):
+        template = get_template(self.template_name)
+        html = template.render(context_dict)
+        result = BytesIO()
+        pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
+        if not pdf.err:
+            return HttpResponse(result.getvalue(), content_type='application/pdf')
+        return None
 
-def _render_to_pdf(template_src, context_dict):
-    template = get_template(template_src)
-    html = template.render(context_dict)
-    result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), content_type='application/pdf')
-    return None
